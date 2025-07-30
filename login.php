@@ -1,3 +1,24 @@
+<?php
+session_start();
+require 'db.php';
+
+if (isset($_POST['s1'])) { 
+    $email = mysqli_real_escape_string($connect, $_POST['email']);
+    $pwd = mysqli_real_escape_string($connect, $_POST['pwd']);
+
+    $qry = "SELECT * FROM register WHERE email='$email' AND pwd='$pwd'";
+    $result = mysqli_query($connect, $qry);
+
+    if (mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['id1'] = $row['mid'];
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        echo "<script>alert('Invalid Username or Password');</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -83,7 +104,7 @@
         <div class="container">
           <div class="d-flex align-items-center">
             <div class="site-logo">
-              <a href="index.html" class="d-block">
+              <a href="index.php" class="d-block">
                 <img src="images/logo.jpg" alt="Image" class="img-fluid" />
               </a>
             </div>
@@ -96,8 +117,8 @@
                   class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
                 >
                   <li>
-                    <a href="index.html" class="nav-link text-left"
-                      ><span class="icon-users"></span> Home</a
+                    <a href="index.php" class="nav-link text-left"
+                      ><span class="icon-home"></span> Home</a
                     >
                   </li>
                   <!-- <li class="has-children">
@@ -108,11 +129,11 @@
                     </ul>
                   </li> -->
                   <li class="active">
-                    <a href="login.html" class="nav-link text-left">Login</a>
+                    <a href="login.php" class="nav-link text-left"><span class="icon-lock"></span> Login</a>
                   </li>
                   <li>
-                    <a href="register.html" class="nav-link text-left"
-                      >Register</a
+                    <a href="register.php" class="nav-link text-left"
+                      ><span class="icon-users"></span>Register</a
                     >
                   </li>
                   <li>
@@ -166,20 +187,23 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-5">
+              <form name="name" method="post">
               <div class="row">
                 <div class="col-md-12 form-group">
-                  <label for="username">Username</label>
+                  <label for="email">Email</label>
                   <input
-                    type="text"
-                    id="username"
+                    type="email"
+                    id="email"
+                    name="email"
                     class="form-control form-control-lg"
                   />
                 </div>
-                <div class="col-md-12 form-group">
+                  <div class="col-md-12 form-group">
                   <label for="pword">Password</label>
                   <input
-                    type="text"
+                    type="password"
                     id="pword"
+                    name="pwd"
                     class="form-control form-control-lg"
                   />
                 </div>
@@ -189,14 +213,18 @@
                   <input
                     type="submit"
                     value="Log In"
+                    name="s1"
                     class="btn btn-primary btn-lg px-5"
                   />
                 </div>
               </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
+
+
 
       <div class="footer">
         <div class="container">

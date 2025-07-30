@@ -1,3 +1,7 @@
+<?php
+require 'db.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -83,7 +87,7 @@
         <div class="container">
           <div class="d-flex align-items-center">
             <div class="site-logo">
-              <a href="index.html" class="d-block">
+              <a href="index.php" class="d-block">
                 <img src="images/logo.jpg" alt="Image" class="img-fluid" />
               </a>
             </div>
@@ -96,8 +100,8 @@
                   class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
                 >
                   <li>
-                    <a href="index.html" class="nav-link text-left"
-                      ><span class="icon-users"></span> Home</a
+                    <a href="index.php" class="nav-link text-left"
+                      ><span class="icon-home"></span>  Home</a
                     >
                   </li>
                   <!-- <li class="has-children">
@@ -108,11 +112,11 @@
                     </ul>
                   </li> -->
                   <li>
-                    <a href="login.html" class="nav-link text-left">Login</a>
+                    <a href="login.php" class="nav-link text-left"><span class="icon-lock"></span> Login</a>
                   </li>
                   <li class="active">
-                    <a href="register.html" class="nav-link text-left"
-                      >Register</a
+                    <a href="register.php" class="nav-link text-left"
+                      ><span class="icon-users"></span> Register</a
                     >
                   </li>
                   <li>
@@ -166,12 +170,14 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-5">
+              <form name="name" method="post">
               <div class="row">
                 <div class="col-md-12 form-group">
-                  <label for="username">Username</label>
+                  <label for="name">Name</label>
                   <input
                     type="text"
-                    id="username"
+                    id="name"
+                    name="name"
                     class="form-control form-control-lg"
                   />
                 </div>
@@ -180,6 +186,16 @@
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    class="form-control form-control-lg"
+                  />
+                </div>
+                  <div class="col-md-12 form-group">
+                  <label for="mobile">Mobile</label>
+                  <input
+                    type="number"
+                    id="mobile"
+                    name="mobile"
                     class="form-control form-control-lg"
                   />
                 </div>
@@ -188,31 +204,52 @@
                   <input
                     type="password"
                     id="pword"
+                    name="pwd"
                     class="form-control form-control-lg"
                   />
                 </div>
-                <div class="col-md-12 form-group">
+                <!-- <div class="col-md-12 form-group">
                   <label for="pword2">Re-type Password</label>
                   <input
                     type="password"
                     id="pword2"
                     class="form-control form-control-lg"
                   />
-                </div>
+                </div>         -->
               </div>
               <div class="row">
                 <div class="col-12">
                   <input
                     type="submit"
                     value="Register"
+                    name="submit"
                     class="btn btn-primary btn-lg px-5"
                   />
                 </div>
               </div>
+</form>
             </div>
           </div>
         </div>
       </div>
+      <?php
+if (isset($_POST['submit'])) {
+    $name = mysqli_real_escape_string($connect, $_POST['name']);
+    $email = mysqli_real_escape_string($connect, $_POST['email']);
+    $mobile = mysqli_real_escape_string($connect, $_POST['mobile']);
+    $pwd = mysqli_real_escape_string($connect, $_POST['pwd']);
+   
+    $qry = "INSERT INTO register (name, email, mobile, pwd) VALUES ('$name', '$email', '$mobile', '$pwd')";
+    $result = mysqli_query($connect, $qry);
+
+    if ($result) {
+        echo "<script>alert('Added successfully');</script>";
+    } else {
+        echo "<script>alert('Not added: " . mysqli_error($connect) . "');</script>";
+    }
+    
+}
+      ?>
 
       <div class="footer">
         <div class="container">

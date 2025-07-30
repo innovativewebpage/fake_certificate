@@ -1,3 +1,8 @@
+<?php
+require 'db.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -83,7 +88,7 @@
         <div class="container">
           <div class="d-flex align-items-center">
             <div class="site-logo">
-              <a href="index.html" class="d-block">
+              <a href="index.php" class="d-block">
                 <img src="images/logo.jpg" alt="Image" class="img-fluid" />
               </a>
             </div>
@@ -96,8 +101,8 @@
                   class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
                 >
                   <li class="active">
-                    <a href="index.html" class="nav-link text-left"
-                      ><span class="icon-users"></span> Home</a
+                    <a href="index.php" class="nav-link text-left"
+                      ><span class="icon-home"></span> Home</a
                     >
                   </li>
                   <!-- <li class="has-children">
@@ -107,16 +112,16 @@
                       <li><a href="about.html">Our School</a></li>
                     </ul>
                   </li> -->
-                  <li>
-                    <a href="login.html" class="nav-link text-left">Login</a>
+                  <li >
+                    <a href="login.php" class="nav-link text-left"><span class="icon-lock"></span> Login</a>
                   </li>
                   <li>
-                    <a href="register.html" class="nav-link text-left"
-                      >Register</a
+                    <a href="register.php" class="nav-link text-left"
+                      ><span class="icon-users"></span> Register</a
                     >
                   </li>
                   <li>
-                    <a href="contact.html" class="nav-link text-left"
+                    <a href="contact.php" class="nav-link text-left"
                       >Contact</a
                     >
                   </li>
