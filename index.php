@@ -6,7 +6,7 @@ require 'db.php';
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Academics &mdash; Website by Colorlib</title>
+    <title>Fake Certificate</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -30,6 +30,8 @@ require 'db.php';
     <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
 
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
 
     <link rel="stylesheet" href="css/aos.css" />
     <link
@@ -53,7 +55,12 @@ require 'db.php';
         <div class="site-mobile-menu-body"></div>
       </div>
 
-      <div class="py-2 bg-light">
+       <div class="bg-top-header padding-top-30 padding-bottom-30">
+
+</div>
+
+
+      <!-- <div class="py-2 bg-light">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-9 d-none d-lg-block">
@@ -80,69 +87,13 @@ require 'db.php';
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <header
         class="site-navbar py-4 js-sticky-header site-navbar-target"
         role="banner"
       >
-        <div class="container">
-          <div class="d-flex align-items-center">
-            <div class="site-logo">
-              <a href="index.php" class="d-block">
-                <img src="images/logo.jpg" alt="Image" class="img-fluid" />
-              </a>
-            </div>
-            <div class="mr-auto">
-              <nav
-                class="site-navigation position-relative text-right"
-                role="navigation"
-              >
-                <ul
-                  class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
-                >
-                  <li class="active">
-                    <a href="index.php" class="nav-link text-left"
-                      ><span class="icon-home"></span> Home</a
-                    >
-                  </li>
-                  <!-- <li class="has-children">
-                    <a href="about.html" class="nav-link text-left">About Us</a>
-                    <ul class="dropdown">
-                      <li><a href="teachers.html">Our Teachers</a></li>
-                      <li><a href="about.html">Our School</a></li>
-                    </ul>
-                  </li> -->
-                  <li >
-                    <a href="login.php" class="nav-link text-left"><span class="icon-lock"></span> Login</a>
-                  </li>
-                  <li>
-                    <a href="register.php" class="nav-link text-left"
-                      ><span class="icon-users"></span> Register</a
-                    >
-                  </li>
-                  <li>
-                    <a href="contact.php" class="nav-link text-left"
-                      >Contact</a
-                    >
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <div class="ml-auto">
-              <div class="social-wrap">
-                <a href="#"><span class="icon-facebook"></span></a>
-                <a href="#"><span class="icon-twitter"></span></a>
-                <a href="#"><span class="icon-linkedin"></span></a>
-
-                <a
-                  href="#"
-                  class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"
-                  ><span class="icon-menu h3"></span
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <?php $activePage = 'home';
+      include 'menu.php'; ?>
       </header>
 
       <div class="hero-slide owl-carousel site-blocks-cover">
@@ -153,7 +104,7 @@ require 'db.php';
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-                <h1>Academics University</h1>
+                <h1>Fake Certificate</h1>
               </div>
             </div>
           </div>
@@ -166,7 +117,7 @@ require 'db.php';
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-                <h1>You Can Learn Anything</h1>
+                <h1>To check the certificates authenticity</h1>
               </div>
             </div>
           </div>
@@ -180,7 +131,7 @@ require 'db.php';
           <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-4 mb-5">
               <h2 class="section-title-underline mb-5">
-                <span>Why Academics Works</span>
+                <span>How fake certificate works</span>
               </h2>
             </div>
           </div>
@@ -191,10 +142,9 @@ require 'db.php';
                   <span class="flaticon-mortarboard text-white"></span>
                 </div>
                 <div class="feature-1-content">
-                  <h2>Personalize Learning</h2>
+                  <h2>Background check</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                    morbi hendrerit elit
+                    This helps in background verification
                   </p>
                   <p>
                     <a href="#" class="btn btn-primary px-4 rounded-0"
@@ -210,10 +160,9 @@ require 'db.php';
                   <span class="flaticon-school-material text-white"></span>
                 </div>
                 <div class="feature-1-content">
-                  <h2>Trusted Courses</h2>
+                  <h2>Third party agencies</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                    morbi hendrerit elit
+                 Third party will act as a agency to check the validation of certificates
                   </p>
                   <p>
                     <a href="#" class="btn btn-primary px-4 rounded-0"
@@ -229,10 +178,9 @@ require 'db.php';
                   <span class="flaticon-library text-white"></span>
                 </div>
                 <div class="feature-1-content">
-                  <h2>Tools for Students</h2>
+                  <h2>Virtual checking</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                    morbi hendrerit elit
+                 This application will help in completing the virtual validation of the ceritificates
                   </p>
                   <p>
                     <a href="#" class="btn btn-primary px-4 rounded-0"
@@ -246,7 +194,7 @@ require 'db.php';
         </div>
       </div>
 
-      <div class="site-section">
+      <!-- <div class="site-section">
         <div class="container">
           <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-6 mb-5">
@@ -470,7 +418,7 @@ require 'db.php';
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div
         class="section-bg style-1"
@@ -480,24 +428,22 @@ require 'db.php';
           <div class="row">
             <div class="col-lg-4">
               <h2 class="section-title-underline style-2">
-                <span>About Our University</span>
+                <span>About Our Application</span>
               </h2>
             </div>
             <div class="col-lg-8">
               <p class="lead">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem
-                nesciunt quaerat ad reiciendis perferendis voluptate fugiat sunt
-                fuga error totam.
+                this application fake ceritifates is about the checking the validation 
+                of cetificates with the help of third party agency to complete the viritual check before
+                moving to original document check in live .....
               </p>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatibus assumenda omnis tempora ullam alias amet eveniet
-                voluptas, incidunt quasi aut officiis porro ad, expedita saepe
-                necessitatibus rem debitis architecto dolore? Nam omnis sapiente
-                placeat blanditiis voluptas dignissimos, itaque fugit a
-                laudantium adipisci dolorem enim ipsum cum molestias? Quod quae
-                molestias modi fugiat quisquam. Eligendi recusandae officiis
-                debitis quas beatae aliquam?
+                  this application fake ceritifates is about the checking the validation 
+                of cetificates with the help of third party agency to complete the viritual check before
+                moving to original document check in live .....
+                   this application fake ceritifates is about the checking the validation 
+                of cetificates with the help of third party agency to complete the viritual check before
+                moving to original document check in live .....
               </p>
               <p><a href="#">Read more</a></p>
             </div>
@@ -506,7 +452,7 @@ require 'db.php';
       </div>
 
       <!-- // 05 - Block -->
-      <div class="site-section">
+      <!-- <div class="site-section">
         <div class="container">
           <div class="row mb-5">
             <div class="col-lg-4">
@@ -665,9 +611,9 @@ require 'db.php';
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div
+      <!-- <div
         class="section-bg style-1"
         style="background-image: url('images/hero_1.jpg')"
       >
@@ -702,9 +648,9 @@ require 'db.php';
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="news-updates">
+      <!-- <div class="news-updates">
         <div class="container">
           <div class="row">
             <div class="col-lg-9">
@@ -831,9 +777,9 @@ require 'db.php';
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div
+      <!-- <div
         class="site-section ftco-subscribe-1"
         style="background-image: url('images/bg_1.jpg')"
       >
@@ -860,18 +806,19 @@ require 'db.php';
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="footer">
         <div class="container">
           <div class="row">
             <div class="col-lg-3">
               <p class="mb-4">
-                <img src="images/logo.png" alt="Image" class="img-fluid" />
+                <img src="images/certified-logo.png" alt="Image" width="100" class="img-fluid" />
               </p>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                nemo minima qui dolor, iusto iure.
+                   this application fake ceritifates is about the checking the validation 
+                of cetificates with the help of third party agency to complete the viritual check before
+                moving to original document check in live ....
               </p>
               <p><a href="#">Learn More</a></p>
             </div>
@@ -913,15 +860,11 @@ require 'db.php';
             <div class="col-12">
               <div class="copyright">
                 <p>
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                   Copyright &copy;
                   <script>
                     document.write(new Date().getFullYear());
                   </script>
-                  All rights reserved | This template is made with
-                  <i class="icon-heart" aria-hidden="true"></i> by
-                  <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  All rights reserved 
                 </p>
               </div>
             </div>

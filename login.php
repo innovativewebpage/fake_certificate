@@ -11,7 +11,7 @@ if (isset($_POST['s1'])) {
 
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-        $_SESSION['id1'] = $row['mid'];
+        $_SESSION['user_id'] = $row['mid'];
         header("Location: dashboard.php");
         exit();
     } else {
@@ -22,7 +22,7 @@ if (isset($_POST['s1'])) {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Academics &mdash; Website by Colorlib</title>
+     <title>Fake certificate</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -69,7 +69,7 @@ if (isset($_POST['s1'])) {
         <div class="site-mobile-menu-body"></div>
       </div>
 
-      <div class="py-2 bg-light">
+      <!-- <div class="py-2 bg-light">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-9 d-none d-lg-block">
@@ -96,69 +96,16 @@ if (isset($_POST['s1'])) {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+       <div class="bg-top-header padding-top-30 padding-bottom-30">
+
+</div>
       <header
         class="site-navbar py-4 js-sticky-header site-navbar-target"
         role="banner"
       >
-        <div class="container">
-          <div class="d-flex align-items-center">
-            <div class="site-logo">
-              <a href="index.php" class="d-block">
-                <img src="images/logo.jpg" alt="Image" class="img-fluid" />
-              </a>
-            </div>
-            <div class="mr-auto">
-              <nav
-                class="site-navigation position-relative text-right"
-                role="navigation"
-              >
-                <ul
-                  class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
-                >
-                  <li>
-                    <a href="index.php" class="nav-link text-left"
-                      ><span class="icon-home"></span> Home</a
-                    >
-                  </li>
-                  <!-- <li class="has-children">
-                    <a href="about.html" class="nav-link text-left">About Us</a>
-                    <ul class="dropdown">
-                      <li><a href="teachers.html">Our Teachers</a></li>
-                      <li><a href="about.html">Our School</a></li>
-                    </ul>
-                  </li> -->
-                  <li class="active">
-                    <a href="login.php" class="nav-link text-left"><span class="icon-lock"></span> Login</a>
-                  </li>
-                  <li>
-                    <a href="register.php" class="nav-link text-left"
-                      ><span class="icon-users"></span>Register</a
-                    >
-                  </li>
-                  <li>
-                    <a href="contact.html" class="nav-link text-left"
-                      >Contact</a
-                    >
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <div class="ml-auto">
-              <div class="social-wrap">
-                <a href="#"><span class="icon-facebook"></span></a>
-                <a href="#"><span class="icon-twitter"></span></a>
-                <a href="#"><span class="icon-linkedin"></span></a>
-
-                <a
-                  href="#"
-                  class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"
-                  ><span class="icon-menu h3"></span
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
+       <?php $activePage = 'login';
+       include 'menu.php'; ?>
       </header>
 
       <div
@@ -169,7 +116,7 @@ if (isset($_POST['s1'])) {
           <div class="row align-items-end justify-content-center text-center">
             <div class="col-lg-7">
               <h2 class="mb-0">Login</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+              <p></p>
             </div>
           </div>
         </div>
@@ -177,7 +124,7 @@ if (isset($_POST['s1'])) {
 
       <div class="custom-breadcrumns border-bottom">
         <div class="container">
-          <a href="index.html">Home</a>
+          <a href="index.php">Home</a>
           <span class="mx-3 icon-keyboard_arrow_right"></span>
           <span class="current">Login</span>
         </div>
@@ -231,11 +178,12 @@ if (isset($_POST['s1'])) {
           <div class="row">
             <div class="col-lg-3">
               <p class="mb-4">
-                <img src="images/logo.png" alt="Image" class="img-fluid" />
+                 <img src="images/certified-logo.png" alt="Image" width="100" class="img-fluid" />
               </p>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                nemo minima qui dolor, iusto iure.
+               this application fake ceritifates is about the checking the validation 
+                of cetificates with the help of third party agency to complete the viritual check before
+                moving to original document check in live ....
               </p>
               <p><a href="#">Learn More</a></p>
             </div>
@@ -277,15 +225,11 @@ if (isset($_POST['s1'])) {
             <div class="col-12">
               <div class="copyright">
                 <p>
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                   Copyright &copy;
                   <script>
                     document.write(new Date().getFullYear());
                   </script>
-                  All rights reserved | This template is made with
-                  <i class="icon-heart" aria-hidden="true"></i> by
-                  <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  All rights reserved
                 </p>
               </div>
             </div>

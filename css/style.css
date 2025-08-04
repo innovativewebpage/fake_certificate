@@ -52,6 +52,28 @@ h5,
   background: #000 !important;
 }
 
+.bg-top-header {
+  background: #183661 !important;
+}
+.padding-top-30 {
+  padding-top: 30px;
+}
+
+.padding-bottom-30 {
+  padding-bottom: 30px;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+.m-l-10 {
+  margin-left: 10px;
+}
+.website-logo img {
+  max-width: 22%;
+  height: auto;
+  border-radius: 10px;
+}
 .color-black-opacity-5 {
   color: rgba(0, 0, 0, 0.5);
 }
