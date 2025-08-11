@@ -9,11 +9,11 @@ if (empty($_SESSION['user_id'])) {
 }
 
 $session_id = $_SESSION['user_id'];
-$qry = mysqli_query($connect, "SELECT * FROM register WHERE mid = '$session_id'");
+$qry = mysqli_query($connect, "SELECT * FROM register WHERE p_id = '$session_id'");
 if (!$qry) {
     die("Query failed: " . mysqli_error($conn));
 }
-$row = mysqli_fetch_array($qry);
+$row = mysqli_fetch_assoc($qry);
 ?>
 	
 <!DOCTYPE html>
@@ -154,7 +154,7 @@ $row = mysqli_fetch_array($qry);
         </div> -->
 
         
-          <
+          
           <?php $activePage = 'addcertificates';
       include 'menu.php'; ?>
       </header>
@@ -184,25 +184,30 @@ $row = mysqli_fetch_array($qry);
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-md-12">
-            
+           
+        <div class="col-md-6 border-end addcertificates_headingaddcertificates_heading">
+          <h3>Upload File</h3>
+          <div class="mb-3 file-upload-wrapper">
+             <label for="fileInput" class="file-upload-label">Choose File</label>
+             <span class="custom-file-text" id="fileText">No file chosen</span>
+            <input type="file" id="fileInput" class="form-control file-upload-input" />
+          </div>
+          
+          <button id="uploadBtn" class="btn btn-primary">Upload</button>
+        </div>
+
+        <!-- Right: List -->
+        <div class="col-md-6 addcertificates_heading">
+          <h3>Available Files</h3>
+          <div id="fileList" class="list-group"></div>
+        </div>
 
 
 
-
-               
-
-<form action="upload.php" method="post" enctype="multipart/form-data">
-    <label>Select file to upload:</label><br>
-    <input type="file" name="uploaded_file"><br><br>
-
-</form>
-               
-</div>
-              </div>
-             
+                </div>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -296,6 +301,78 @@ $row = mysqli_fetch_array($qry);
         />
       </svg>
     </div>
+
+
+    
+    <script>
+      document
+        .getElementById("uploadBtn")
+        .addEventListener("click", function () {
+          let file = document.getElementById("fileInput").files[0];
+          if (!file) {
+            alert("Please choose a file first");
+            return;
+          }
+
+          let formData = new FormData();
+          formData.append("file", file);
+
+          fetch("addcertificates_upload.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.text())
+            .then((data) => {
+              alert(data);
+              document.getElementById("fileInput").value = "";
+              loadFiles();
+            });
+        });
+
+      function loadFiles() {
+        fetch("addcertificates_list.php")
+          .then((res) => res.json())
+          .then((files) => {
+            let listDiv = document.getElementById("fileList");
+            listDiv.innerHTML = "";
+            files.forEach((file) => {
+              let div = document.createElement("div");
+              div.className =
+                "list-group-item d-flex justify-content-between align-items-center";
+
+              let link = document.createElement("a");
+              link.href = "addcertificates_download.php?id=" + file.id;
+              link.textContent = file.filename;
+              link.className = "text-decoration-none";
+
+              let delBtn = document.createElement("button");
+              delBtn.textContent = "Delete";
+              delBtn.className = "btn btn-sm btn-danger";
+              delBtn.onclick = function () {
+                if (confirm("Are you sure you want to delete this file?")) {
+                  fetch("addcertificates_delete.php?id=" + file.id, { method: "GET" })
+                    .then((res) => res.text())
+                    .then((msg) => {
+                      alert(msg);
+                      loadFiles();
+                    });
+                }
+              };
+
+              div.appendChild(link);
+              div.appendChild(delBtn);
+              listDiv.appendChild(div);
+            });
+          });
+      }
+
+      loadFiles();
+
+      document.getElementById("fileInput").addEventListener("change", function () {
+    document.getElementById("fileText").textContent =
+        this.files.length ? this.files[0].name : "No file chosen";
+});
+    </script>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>

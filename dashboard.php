@@ -9,11 +9,11 @@ if (empty($_SESSION['user_id'])) {
 }
 
 $session_id = $_SESSION['user_id'];
-$qry = mysqli_query($connect, "SELECT * FROM register WHERE mid = '$session_id'");
+$qry = mysqli_query($connect, "SELECT * FROM register WHERE p_id = '$session_id'");
 if (!$qry) {
     die("Query failed: " . mysqli_error($conn));
 }
-$row = mysqli_fetch_array($qry);
+$row = mysqli_fetch_assoc($qry);
 ?>
 	
 <!DOCTYPE html>
